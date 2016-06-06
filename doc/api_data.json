@@ -1,0 +1,1205 @@
+[
+  {
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "optional": false,
+            "field": "varname1",
+            "description": "<p>No type.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "varname2",
+            "description": "<p>With type.</p>"
+          }
+        ]
+      }
+    },
+    "type": "",
+    "url": "",
+    "version": "0.0.0",
+    "filename": "./doc/main.js",
+    "group": "D__xampp_htdocs_blog_doc_main_js",
+    "groupTitle": "D__xampp_htdocs_blog_doc_main_js",
+    "name": ""
+  },
+  {
+    "version": "1.0.0",
+    "type": "delete",
+    "url": "web/v1/supplier/:id",
+    "title": "申请 - 取消",
+    "name": "apply_cancel",
+    "group": "Web_Material_Apply",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"msg\": \"ok\",\n  \"data\": 1,\n  \"code\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://localhost/blo/web/v1/material/apply/:id"
+      }
+    ],
+    "filename": "./app/Http/Controllers/Admin/v1/MaterialApplyController.php",
+    "groupTitle": "Web_Material_Apply"
+  },
+  {
+    "version": "1.0.0",
+    "type": "post",
+    "url": "web/v1/material/apply",
+    "title": "申请 - 创建",
+    "name": "apply_create",
+    "group": "Web_Material_Apply",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "number",
+            "description": "<p>编号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>供货商</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "category",
+            "description": "<p>材料类别编号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "url",
+            "description": "<p>供货商URL</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "unit",
+            "description": "<p>单位</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "amount",
+            "description": "<p>数量</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "purpose",
+            "description": "<p>用途</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "project",
+            "description": "<p>材料项目类别</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "specification",
+            "description": "<p>规格</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "type",
+            "description": "<p>申请类别</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "data",
+            "description": "<p>供货商ID</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"msg\": \"ok\",\n  \"data\": 1\n  \"code\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://localhost/blog/web/v1/material/apply"
+      }
+    ],
+    "filename": "./app/Http/Controllers/Admin/v1/MaterialApplyController.php",
+    "groupTitle": "Web_Material_Apply"
+  },
+  {
+    "version": "1.0.0",
+    "type": "get",
+    "url": "web/v1/material/apply",
+    "title": "申请 - 列表",
+    "name": "apply_list",
+    "group": "Web_Material_Apply",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": true,
+            "field": "p",
+            "defaultValue": "1",
+            "description": "<p>可选,元素信息页码</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": true,
+            "field": "n",
+            "defaultValue": "10",
+            "description": "<p>可选,每页显示数量,上限100</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": true,
+            "field": "cate",
+            "description": "<p>搜索 元素分类ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "name",
+            "description": "<p>搜索 元素中/英文名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "sn",
+            "description": "<p>搜索 元素编号</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>元素总数</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>元素列表</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"msg\": 100,\n  \"data\": [\n    {\n        \"id\": 1,\n        \"email\": \"xxx@qq.com\",\n        \"created_at\": 1458492034\n    },\n    {\n        \"id\": 2,\n        \"email\": \"ooo@163.com\",\n        \"created_at\": 1458553103\n    },\n  ],\n  \"code\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://api.smell.renrenfenqi.com/web/v1/material/apply"
+      }
+    ],
+    "filename": "./app/Http/Controllers/Admin/v1/MaterialApplyController.php",
+    "groupTitle": "Web_Material_Apply"
+  },
+  {
+    "version": "1.0.0",
+    "type": "post",
+    "url": "web/v1/material/category",
+    "title": "材料分类 - 创建",
+    "name": "material_category_create",
+    "group": "Web_Material_Cate",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>材料分类中文名称</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "data",
+            "description": "<p>材料分类ID</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"msg\": \"ok\",\n  \"data\": 1\n  \"code\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://localhost/blog/web/v1/material/category/creatre"
+      }
+    ],
+    "filename": "./app/Http/Controllers/Admin/v1/MaterialCateController.php",
+    "groupTitle": "Web_Material_Cate"
+  },
+  {
+    "version": "1.0.0",
+    "type": "delete",
+    "url": "web/v1/material/category/:id",
+    "title": "材料分类 - 删除",
+    "name": "material_category_delete",
+    "group": "Web_Material_Cate",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"msg\": \"ok\",\n  \"data\": \"\"\n  \"code\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://localhost/blog/web/v1/material/category/:id"
+      }
+    ],
+    "filename": "./app/Http/Controllers/Admin/v1/MaterialCateController.php",
+    "groupTitle": "Web_Material_Cate"
+  },
+  {
+    "version": "1.0.0",
+    "type": "get",
+    "url": "web/v1/material/category",
+    "title": "材料分类 - 列表",
+    "name": "material_category_list",
+    "group": "Web_Material_Cate",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": true,
+            "field": "p",
+            "defaultValue": "1",
+            "description": "<p>可选,材料分类信息页码</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": true,
+            "field": "n",
+            "defaultValue": "10",
+            "description": "<p>可选,每页显示数量</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>材料分类总数</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>材料分类列表</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"msg\": 100,\n  \"data\": [\n    {\n        \"id\": 1,\n        \"name\": \"test\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"ooo\",\n    },\n  ],\n  \"code\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://localhost/blog/web/v1/material/category"
+      }
+    ],
+    "filename": "./app/Http/Controllers/Admin/v1/MaterialCateController.php",
+    "groupTitle": "Web_Material_Cate"
+  },
+  {
+    "version": "1.0.0",
+    "type": "put",
+    "url": "web/v1/material/category/:id",
+    "title": "材料分类 - 编辑",
+    "name": "material_category_update",
+    "group": "Web_Material_Cate",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>材料分类中文名称</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"msg\": \"ok\",\n  \"data\": \"\"\n  \"code\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://localhost/blog/web/v1/material/category/:id"
+      }
+    ],
+    "filename": "./app/Http/Controllers/Admin/v1/MaterialCateController.php",
+    "groupTitle": "Web_Material_Cate"
+  },
+  {
+    "version": "1.0.0",
+    "type": "get",
+    "url": "web/v1/material",
+    "title": "元素 - 列表",
+    "name": "material_list",
+    "group": "Web_Material",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": true,
+            "field": "p",
+            "defaultValue": "1",
+            "description": "<p>可选,元素信息页码</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": true,
+            "field": "n",
+            "defaultValue": "10",
+            "description": "<p>可选,每页显示数量,上限100</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "col",
+            "description": "<p>排序列名 sn:编号, en_name:英文名称, cn_name:中文名称, price:价格</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": true,
+            "field": "order",
+            "defaultValue": "1",
+            "description": "<p>1:升序 0:降序</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": true,
+            "field": "cate",
+            "description": "<p>搜索 元素分类ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "name",
+            "description": "<p>搜索 元素中/英文名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "sn",
+            "description": "<p>搜索 元素编号</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>元素总数</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>元素列表</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"msg\": 100,\n  \"data\": [\n    {\n        \"id\": 1,\n        \"email\": \"xxx@qq.com\",\n        \"created_at\": 1458492034\n    },\n    {\n        \"id\": 2,\n        \"email\": \"ooo@163.com\",\n        \"created_at\": 1458553103\n    },\n  ],\n  \"code\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://api.smell.renrenfenqi.com/web/v1/material"
+      }
+    ],
+    "filename": "./app/Http/Controllers/Admin/v1/MaterialController.php",
+    "groupTitle": "Web_Material"
+  },
+  {
+    "version": "1.0.0",
+    "type": "post",
+    "url": "web/v1/project/category",
+    "title": "项目管理 - 创建",
+    "name": "project_category_create",
+    "group": "Web_Project_Category",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userName",
+            "description": "<p>项目管理立项人</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>项目管理中文名称</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "data",
+            "description": "<p>项目管理ID</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"msg\": \"ok\",\n  \"data\": 1\n  \"code\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://localhost/blog/web/v1/project/category/creatre"
+      }
+    ],
+    "filename": "./app/Http/Controllers/Admin/v1/ProjectCateController.php",
+    "groupTitle": "Web_Project_Category"
+  },
+  {
+    "version": "1.0.0",
+    "type": "delete",
+    "url": "web/v1/project/category/:id",
+    "title": "项目管理 - 删除",
+    "name": "project_category_delete",
+    "group": "Web_Project_Category",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"msg\": \"ok\",\n  \"data\": \"\"\n  \"code\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://localhost/blog/web/v1/project/category/:id"
+      }
+    ],
+    "filename": "./app/Http/Controllers/Admin/v1/ProjectCateController.php",
+    "groupTitle": "Web_Project_Category"
+  },
+  {
+    "version": "1.0.0",
+    "type": "get",
+    "url": "web/v1/project/category",
+    "title": "项目管理 - 列表",
+    "name": "project_category_list",
+    "group": "Web_Project_Category",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": true,
+            "field": "p",
+            "defaultValue": "1",
+            "description": "<p>可选,项目管理信息页码</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": true,
+            "field": "n",
+            "defaultValue": "10",
+            "description": "<p>可选,每页显示数量</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>项目管理总数</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>项目管理列表</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"msg\": 100,\n  \"data\": [\n    {\n        \"id\": 1,\n        \"name\": \"test\"\n        \"username\": \"mis\"\n        \"create_at\": \"1464860989\"\n    },\n    {\n        \"id\": 1,\n        \"name\": \"0000\"\n        \"username\": \"韩懿莹\"\n        \"create_at\": \"1464860989\"\n    },\n  ],\n  \"code\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://localhost/blog/web/v1/project/category"
+      }
+    ],
+    "filename": "./app/Http/Controllers/Admin/v1/ProjectCateController.php",
+    "groupTitle": "Web_Project_Category"
+  },
+  {
+    "version": "1.0.0",
+    "type": "put",
+    "url": "web/v1/project/category/:id",
+    "title": "项目管理 - 编辑",
+    "name": "project_category_update",
+    "group": "Web_Project_Category",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userName",
+            "description": "<p>项目管理立项人</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>项目管理中文名称</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"msg\": \"ok\",\n  \"data\": \"\"\n  \"code\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://localhost/blog/web/v1/project/category/:id"
+      }
+    ],
+    "filename": "./app/Http/Controllers/Admin/v1/ProjectCateController.php",
+    "groupTitle": "Web_Project_Category"
+  },
+  {
+    "version": "1.0.0",
+    "type": "post",
+    "url": "web/v1/supplier",
+    "title": "供货商 - 创建",
+    "name": "supplier_create",
+    "group": "Web_Supplier",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>供货商</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "contacts",
+            "description": "<p>供货商联系人</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "phone",
+            "description": "<p>供货商联系电话</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "url",
+            "description": "<p>供货商URL</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "address",
+            "description": "<p>供货商地址</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "account",
+            "description": "<p>收款账户</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "bank",
+            "description": "<p>银行</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "branch",
+            "description": "<p>支行</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "card",
+            "description": "<p>卡号</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "data",
+            "description": "<p>供货商ID</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"msg\": \"ok\",\n  \"data\": 1\n  \"code\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://localhost/blog/web/v1/supplier"
+      }
+    ],
+    "filename": "./app/Http/Controllers/Admin/v1/SupplierController.php",
+    "groupTitle": "Web_Supplier"
+  },
+  {
+    "version": "1.0.0",
+    "type": "delete",
+    "url": "web/v1/supplier/:id",
+    "title": "供货商 - 删除",
+    "name": "supplier_delete",
+    "group": "Web_Supplier",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"msg\": \"ok\",\n  \"data\": 1,\n  \"code\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://localhost/blo/web/v1/supplier/:id"
+      }
+    ],
+    "filename": "./app/Http/Controllers/Admin/v1/SupplierController.php",
+    "groupTitle": "Web_Supplier"
+  },
+  {
+    "version": "1.0.0",
+    "type": "get",
+    "url": "web/v1/supplier",
+    "title": "供货商 - 列表",
+    "name": "supplier_list",
+    "group": "Web_Supplier",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": true,
+            "field": "p",
+            "defaultValue": "1",
+            "description": "<p>可选,供货商信息页码</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": true,
+            "field": "n",
+            "defaultValue": "10",
+            "description": "<p>可选,每页显示数量,上限100</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "name",
+            "description": "<p>搜索 供货商名称</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>供货商总数</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>供货商列表</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n              \"msg\": 2,\n              \"data\": [\n              {\n              \"name\": \"光明\",\n              \"contacts\": \"老王\",\n              \"phone\": \"13888747478\",\n              \"url\": \"http://baudi.com\",\n              \"address\": \"文三路90号\",\n              \"account\": \"隔壁老王\",\n              \"bank\": \"杭州银行\",\n              \"branch\": \"文三支行\",\n              \"card\": \"123132132\"\n              },\n              {\n              \"name\": \"王老吉\",\n              \"contacts\": \"老王\",\n              \"phone\": \"13888747478\",\n              \"url\": \"http://baudi.com\",\n              \"address\": \"文三路90号\",\n              \"account\": \"隔壁老王\",\n              \"bank\": \"杭州银行\",\n              \"branch\": \"文三支行\",\n              \"card\": \"123132132\"\n              }\n              ],\n              \"code\": 1\n              }",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://localhost/blo/web/v1/supplier"
+      }
+    ],
+    "filename": "./app/Http/Controllers/Admin/v1/SupplierController.php",
+    "groupTitle": "Web_Supplier"
+  },
+  {
+    "version": "1.0.0",
+    "type": "get",
+    "url": "web/v1/supplier/:id",
+    "title": "供货商 - 查看",
+    "name": "supplier_select",
+    "group": "Web_Supplier",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n          \"msg\": \"ok\",\n          \"data\": {\n          \"id\": 9,\n          \"name\": \"光明\",\n          \"contacts\": \"老王\",\n          \"phone\": \"13888747478\",\n          \"url\": \"http://baudi.com\",\n          \"address\": \"文三路90号\",\n          \"price\": null,\n          \"account\": \"隔壁老王\",\n          \"bank\": \"杭州银行\",\n          \"branch\": \"文三支行\",\n          \"card\": \"123132132\",\n          \"create_at\": 1465182875,\n          \"update_at\": null,\n          \"is_del\": \"0\"\n          },\n          \"code\": 1\n      }",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://localhost/blog/web/v1/supplier/:id"
+      }
+    ],
+    "filename": "./app/Http/Controllers/Admin/v1/SupplierController.php",
+    "groupTitle": "Web_Supplier"
+  },
+  {
+    "version": "1.0.0",
+    "type": "get",
+    "url": "web/v1/material/auto?type=:type&value=:value",
+    "title": "元素 - 自动补全",
+    "name": "material_auto",
+    "group": "Web",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>元素搜索类型 sn:编号 en:英文名称 cn:中文名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "value",
+            "description": "<p>搜索关键字</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"msg\": \"ok\",\n  \"data\": {\n    \"id\": 1,\n    \"account\": \"a@xx.com\",\n    \"name\": \"xxx\",\n    \"character_id\": 1,\n    \"is_closed\": 0\n  },\n  \"code\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://api.smell.renrenfenqi.com/web/v1/material/auto"
+      }
+    ],
+    "filename": "./app/Http/Controllers/Admin/v1/MaterialController.php",
+    "groupTitle": "Web"
+  },
+  {
+    "version": "1.0.0",
+    "type": "post",
+    "url": "web/v1/material",
+    "title": "元素 - 创建",
+    "name": "material_create",
+    "group": "Web",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "category",
+            "description": "<p>元素分类ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "sn",
+            "description": "<p>元素编号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "en_name",
+            "description": "<p>元素英文名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "cn_name",
+            "description": "<p>元素中文名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Float",
+            "optional": false,
+            "field": "percent",
+            "description": "<p>元素浓度</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "factory",
+            "description": "<p>供应商</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Float",
+            "optional": false,
+            "field": "price",
+            "description": "<p>价格</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "data",
+            "description": "<p>元素ID</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"msg\": \"ok\",\n  \"data\": 1\n  \"code\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://api.smell.renrenfenqi.com/web/v1/material"
+      }
+    ],
+    "filename": "./app/Http/Controllers/Admin/v1/MaterialController.php",
+    "groupTitle": "Web"
+  },
+  {
+    "version": "1.0.0",
+    "type": "delete",
+    "url": "web/v1/material/:id",
+    "title": "元素 - 删除",
+    "name": "material_delete",
+    "group": "Web",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"msg\": \"ok\",\n  \"data\": 1,\n  \"code\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://api.smell.renrenfenqi.com/web/v1/material/:id"
+      }
+    ],
+    "filename": "./app/Http/Controllers/Admin/v1/MaterialController.php",
+    "groupTitle": "Web"
+  },
+  {
+    "version": "1.0.0",
+    "type": "get",
+    "url": "web/v1/material/:id",
+    "title": "元素 - 查看",
+    "name": "material_select",
+    "group": "Web",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"msg\": \"ok\",\n  \"data\": {\n    \"id\": 1,\n    \"account\": \"a@xx.com\",\n    \"name\": \"xxx\",\n    \"character_id\": 1,\n    \"is_closed\": 0\n  },\n  \"code\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://api.smell.renrenfenqi.com/web/v1/material"
+      }
+    ],
+    "filename": "./app/Http/Controllers/Admin/v1/MaterialController.php",
+    "groupTitle": "Web"
+  },
+  {
+    "version": "1.0.0",
+    "type": "put",
+    "url": "web/v1/material",
+    "title": "元素 - 编辑",
+    "name": "material_update",
+    "group": "Web",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "category",
+            "description": "<p>元素分类ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "sn",
+            "description": "<p>元素编号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "en_name",
+            "description": "<p>元素英文名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "cn_name",
+            "description": "<p>元素中文名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Float",
+            "optional": false,
+            "field": "percent",
+            "description": "<p>元素浓度</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "factory",
+            "description": "<p>供应商</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Float",
+            "optional": false,
+            "field": "price",
+            "description": "<p>价格</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "data",
+            "description": "<p>元素ID</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"msg\": \"ok\",\n  \"data\": 1\n  \"code\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://api.smell.renrenfenqi.com/web/v1/material"
+      }
+    ],
+    "filename": "./app/Http/Controllers/Admin/v1/MaterialController.php",
+    "groupTitle": "Web"
+  }
+]

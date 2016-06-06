@@ -11,7 +11,7 @@ class MaterialApplyController extends Controller
 {
 
     /**
-     * @apiVersion 1.0.0
+     * @apiVersion 1.0.0111
      *
      * @api {get} web/v1/material/apply 申请 - 列表
      * @apiName apply_list

@@ -74,7 +74,7 @@ class Material extends BaseModel
         if ($data['name']){
             self::selectMaterialByName($data['name']);
         }
-//        self::increment()
+
         $res = self::selectMaterialById($id);
 
         $new['updated_at'] = time();

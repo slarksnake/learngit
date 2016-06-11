@@ -10,11 +10,11 @@ Route::group(
     function () {
         //材料资料
         Route::group(['prefix' => 'material'], function () {
-            Route::get('/', 'MaterialController@index');
-            Route::get('/{id}', 'MaterialController@select');
-            Route::post('/', 'MaterialController@create');
-            Route::put('/{id}', 'MaterialController@update');
-            Route::delete('/{id}', 'MaterialController@delete');
+            Route::get('/', 'InventoryManage@index');
+            Route::get('/{id}', 'InventoryManage@select');
+//            Route::post('/', 'MaterialController@create');
+//            Route::put('/{id}', 'MaterialController@update');
+//            Route::delete('/{id}', 'MaterialController@delete');
 
                 //Route::resource('category', 'MaterialCateController');材料分类资料
             Route::group(['prefix' => 'category'], function () {
@@ -26,9 +26,37 @@ Route::group(
 
             //申请材料资源
             Route::group(['prefix' => 'apply'], function () {
-                Route::get('/', 'MaterialApplyController@index');
-                Route::post('/', 'MaterialApplyController@create');
-                Route::delete('/{id}', 'MaterialApplyController@cancel');
+                Route::get('/', 'ApplyManageController@index');
+                Route::put('/{id}', 'ApplyManageController@cancel');
+                //采购申请资源
+                Route::group(['prefix' => 'procurement'], function () {
+                    Route::get('/{id}', 'ApplyManageController@selectProcurement');
+                    Route::post('/', 'ApplyManageController@createProcurement');
+                    Route::put('/{id}', 'ApplyManageController@auditProcurement');
+                });
+                //领用申请资源
+                Route::group(['prefix' => 'recipients'], function () {
+                    Route::get('/{id}', 'ApplyManageController@selectRecipients');
+                    Route::post('/', 'ApplyManageController@createRecipients');
+                    Route::put('/{id}', 'ApplyManageController@auditRecipients');
+                });
+            });
+
+            //购买管理资源
+            Route::group(['prefix' => 'purchase'], function () {
+                Route::post('/', 'PurchaseManageController@createOrders');
+                //库存资源
+                Route::group(['prefix' => 'storage'], function () {
+                    Route::get('/', 'PurchaseManageController@listStorage');
+                    Route::post('/', 'PurchaseManageController@createStorage');
+                    Route::put('/{id}', 'PurchaseManageController@updateStorage');
+                });
+                //报销资源
+                Route::group(['prefix' => 'reimburse'], function () {
+                    Route::get('/', 'PurchaseManageController@listReimburse');
+                    Route::put('/{id}', 'PurchaseManageController@reimburseStorage');
+                });
+
             });
         });
 

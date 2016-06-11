@@ -13,6 +13,7 @@ use Illuminate\Validation\Factory;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
     protected $uid = 0;
     protected $userName = '';
 
@@ -70,3 +71,4 @@ class Controller extends BaseController
         return response()->json(['msg'=>$msg, 'code'=>$code], $httpStatusCode);
     }
 }
+

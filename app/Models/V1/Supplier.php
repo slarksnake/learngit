@@ -44,36 +44,21 @@ Class Supplier extends BaseModel
     {
         $searchCondition = [['supplier.is_del', '0']];
         if ($name !== '') {
-            $data = self::where($searchCondition)
-                ->where(function ($query) use ($name) {
-                    $query->where('supplier.name', 'like', $name . '%');
-                })
-                ->paginate($n, [
-                    'name',
-                    'contacts',
-                    'phone',
-                    'url',
-                    'address',
-                    'account',
-                    'bank',
-                    'branch',
-                    'card',
-                ], 'p', $p);
-
-        } else {
-            $data = self::where($searchCondition)
-                ->paginate($n, [
-                    'name',
-                    'contacts',
-                    'phone',
-                    'url',
-                    'address',
-                    'account',
-                    'bank',
-                    'branch',
-                    'card',
-                ], 'p', $p);
+            $searchCondition[] = ['supplier.sup_name', 'like', $name.'%'];
         }
+
+        $data = self::where($searchCondition)
+            ->paginate($n, [
+                'sup_name',
+                'contacts',
+                'phone',
+                'url',
+                'address',
+                'account',
+                'bank',
+                'branch',
+                'card',
+            ], 'p', $p);
 
         return self::getPageData($data);
     }
@@ -82,6 +67,20 @@ Class Supplier extends BaseModel
     {
         $data = self::where([
             ['id', $id],
+            ['is_del', '0']
+        ])->select('*')->first();
+
+        if (! $data) {
+            throw new Exception('该供应商不存在@404', 2003);
+        }
+
+        return $data;
+    }
+
+    public static function selectSupplierByName($supName)
+    {
+        $data = self::where([
+            ['sup_name', $supName],
             ['is_del', '0']
         ])->select('*')->first();
 
@@ -102,11 +101,11 @@ Class Supplier extends BaseModel
      *
      * }*/
 
-    private static function isSupplierNameUsed($data, $id = null)
+    public static function isSupplierNameUsed($data, $id = null)
     {
-        $name = $data['name'];
+        $name = $data['sup_name'];
         // 供应商名称唯一
-        $where = "is_del='0' AND name = '$name'";
+        $where = "is_del='0' AND sup_name = '$name'";
 
         if ($id) {
             $where .= " AND id<>$id";
